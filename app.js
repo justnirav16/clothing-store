@@ -192,6 +192,51 @@ const PRODUCTS = [
     sku: 'MSN-WLB-008',
     reviews: []
   },
+  {
+    id: 9,
+    name: 'Fall In Love Quote Tee',
+    sub: 'Stone White',
+    price: 100,
+    originalPrice: null,
+    category: 'shirts',
+    badge: 'New',
+    image: 'images/quote-tee.jpg',
+    images: ['images/quote-tee.jpg', 'images/shirt.jpg', 'images/trousers.jpg'],
+    colors: ['#F5F0EA', '#1A1512', '#C4A882'],
+    sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
+    outOfStock: [],
+    rating: 4.9,
+    reviewCount: 38,
+    description: '"Fall in love with your problems. Maybe they will leave you too..." — A statement tee for those who wear their philosophy. Printed on a heavyweight stonewashed cotton tee with a relaxed, boxy fit. The oversized back graphic is printed in burgundy ink for a vintage editorial feel.',
+    details: [
+      '100% Heavyweight Stonewashed Cotton',
+      'Machine wash cold, inside out',
+      'Relaxed boxy fit — true to size',
+      'Burgundy screen-printed back graphic',
+      'Ribbed crewneck collar',
+    ],
+    care: [
+      'Machine wash cold, inside out to preserve print',
+      'Tumble dry low or hang dry',
+      'Do not iron directly on print',
+      'Do not bleach',
+    ],
+    sku: 'MSN-FLQ-009',
+    reviews: [
+      {
+        name: 'Alex M.',
+        rating: 5,
+        date: 'July 2026',
+        text: 'This tee hits different. The quote, the fit, the weight of the fabric — everything is perfect. Got so many questions about it.',
+      },
+      {
+        name: 'Jordan K.',
+        rating: 5,
+        date: 'July 2026',
+        text: 'Wore this on day one and already got three compliments. Boxy fit is exactly what I wanted.',
+      },
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════
