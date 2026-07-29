@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAISON — Premium Minimalist Fashion</title>
+  <meta name="description" content="MAISON — A curated collection of minimalist, premium fashion. Discover timeless pieces crafted for the modern wardrobe." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- NAVIGATION -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <button class="nav-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#" class="nav-link" data-page="home">Home</a>
+      <a href="#" class="nav-link" data-page="shop">Shop</a>
+      <a href="#" class="nav-link" data-page="home" data-section="collections">Collections</a>
+      <a href="#" class="nav-link" data-page="home" data-section="about">About</a>
+    </nav>
+    <a href="#" class="nav-brand" data-page="home">MAISON</a>
+    <div class="nav-actions">
+      <button class="nav-icon-btn" id="searchBtn" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <button class="nav-icon-btn" id="wishlistBtn" aria-label="Wishlist">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </button>
+      <button class="nav-icon-btn cart-btn" id="cartBtn" aria-label="Cart">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  </button>
+  <nav class="mobile-nav-links">
+    <a href="#" class="mobile-nav-link" data-page="home">Home</a>
+    <a href="#" class="mobile-nav-link" data-page="shop">Shop</a>
+    <a href="#" class="mobile-nav-link" data-page="home" data-section="collections">Collections</a>
+    <a href="#" class="mobile-nav-link" data-page="home" data-section="about">About</a>
+  </nav>
+</div>
+<div class="mobile-overlay" id="mobileOverlay"></div>
+
+<!-- Search Overlay -->
+<div class="search-overlay" id="searchOverlay">
+  <button class="search-close" id="searchClose" aria-label="Close search">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  </button>
+  <div class="search-content">
+    <h2 class="search-heading">What are you looking for?</h2>
+    <div class="search-input-wrap">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="searchInput" placeholder="Search dresses, blazers, coats…" class="search-input" autocomplete="off" />
+    </div>
+    <div class="search-tags">
+      <span class="search-tag">New Arrivals</span>
+      <span class="search-tag">Bestsellers</span>
+      <span class="search-tag">Blazers</span>
+      <span class="search-tag">Dresses</span>
+      <span class="search-tag">Coats</span>
+    </div>
+  </div>
+</div>
+
+<!-- Cart Drawer -->
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-header">
+    <h3>Your Cart</h3>
+    <button class="cart-close-btn" id="cartClose" aria-label="Close cart">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      <p>Your cart is empty</p>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <span id="cartTotal">$0.00</span>
+    </div>
+    <p class="cart-shipping-note">Shipping & taxes calculated at checkout</p>
+    <button class="btn-primary full-width" id="checkoutBtn">Proceed to Checkout</button>
+    <button class="btn-ghost full-width" data-page="shop">Continue Shopping</button>
+  </div>
+</div>
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- PAGES WRAPPER -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<main id="app">
+
+  <!-- ─────────────── HOME PAGE ─────────────── -->
+  <div id="page-home" class="page active">
+
+    <!-- HERO -->
+    <section class="hero" id="hero-section">
+      <div class="hero-media">
+        <img src="images/hero.jpg" alt="MAISON — Minimalist Fashion" class="hero-img" loading="eager" />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <span class="hero-eyebrow animate-fade-up" style="--delay:0.1s">New Collection 2026</span>
+        <h1 class="hero-title animate-fade-up" style="--delay:0.3s">
+          Wear the<br/><em>Silence</em>
+        </h1>
+        <p class="hero-subtitle animate-fade-up" style="--delay:0.5s">Timeless pieces for the deliberate wardrobe.</p>
+        <div class="hero-ctas animate-fade-up" style="--delay:0.7s">
+          <button class="btn-primary" data-page="shop">Shop Collection</button>
+          <button class="btn-ghost-white" data-section="collections">Explore Looks</button>
+        </div>
+      </div>
+      <div class="hero-scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- MARQUEE BANNER -->
+    <div class="marquee-wrapper" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Free shipping on orders over $150</span>
+        <span class="marquee-dot">✦</span>
+        <span>New arrivals every Monday</span>
+        <span class="marquee-dot">✦</span>
+        <span>Sustainably crafted</span>
+        <span class="marquee-dot">✦</span>
+        <span>Free returns within 30 days</span>
+        <span class="marquee-dot">✦</span>
+        <span>Free shipping on orders over $150</span>
+        <span class="marquee-dot">✦</span>
+        <span>New arrivals every Monday</span>
+        <span class="marquee-dot">✦</span>
+        <span>Sustainably crafted</span>
+        <span class="marquee-dot">✦</span>
+        <span>Free returns within 30 days</span>
+        <span class="marquee-dot">✦</span>
+      </div>
+    </div>
+
+    <!-- FEATURED PRODUCTS -->
+    <section class="section" id="featured-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">Featured Pieces</span>
+          <h2 class="section-title">Essentials, Elevated</h2>
+        </div>
+        <div class="products-grid" id="featuredGrid">
+          <!-- Injected by JS -->
+        </div>
+        <div class="section-cta reveal">
+          <button class="btn-outline" data-page="shop">View All Products</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLLECTIONS BANNER -->
+    <section class="collections-section" id="collections">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">Curated Collections</span>
+          <h2 class="section-title">Shop by Category</h2>
+        </div>
+        <div class="collections-grid reveal">
+          <div class="collection-card" data-category="dresses" data-page="shop">
+            <div class="collection-img-wrap">
+              <img src="images/dress.jpg" alt="Dresses" loading="lazy" />
+              <div class="collection-hover-overlay"></div>
+            </div>
+            <div class="collection-info">
+              <h3>Dresses</h3>
+              <span>12 pieces →</span>
+            </div>
+          </div>
+          <div class="collection-card collection-card-tall" data-category="blazers" data-page="shop">
+            <div class="collection-img-wrap">
+              <img src="images/blazer.jpg" alt="Blazers" loading="lazy" />
+              <div class="collection-hover-overlay"></div>
+            </div>
+            <div class="collection-info">
+              <h3>Blazers</h3>
+              <span>8 pieces →</span>
+            </div>
+          </div>
+          <div class="collection-card" data-category="coats" data-page="shop">
+            <div class="collection-img-wrap">
+              <img src="images/coat.jpg" alt="Outerwear" loading="lazy" />
+              <div class="collection-hover-overlay"></div>
+            </div>
+            <div class="collection-info">
+              <h3>Outerwear</h3>
+              <span>6 pieces →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT / BRAND STATEMENT -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <div class="about-grid reveal">
+          <div class="about-text">
+            <span class="section-eyebrow">Our Philosophy</span>
+            <h2 class="about-title">Less, but better.</h2>
+            <p class="about-body">MAISON was founded on a single belief — that great design is not about adding more, but about removing everything that doesn't serve a purpose. Each piece in our collection is crafted from sustainable materials, designed to last beyond seasons.</p>
+            <p class="about-body">We believe in slow fashion, intentional living, and the quiet confidence of a well-chosen wardrobe.</p>
+            <button class="btn-outline" data-page="shop">Discover Our Story</button>
+          </div>
+          <div class="about-visual">
+            <div class="about-img-wrap">
+              <img src="images/blazer.jpg" alt="Our craft" loading="lazy" />
+            </div>
+            <div class="about-badge">
+              <span class="badge-number">500+</span>
+              <span class="badge-label">Pieces Crafted</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-inner reveal">
+          <div class="newsletter-text">
+            <h2>Stay in the know.</h2>
+            <p>New arrivals, exclusive offers & stories from MAISON — delivered monthly.</p>
+          </div>
+          <form class="newsletter-form" id="newsletterForm" onsubmit="handleNewsletter(event)">
+            <div class="newsletter-input-group">
+              <input type="email" placeholder="Your email address" required class="newsletter-input" id="newsletterEmail" />
+              <button type="submit" class="btn-primary">Subscribe</button>
+            </div>
+            <p class="newsletter-disclaimer">No spam. Unsubscribe anytime.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand-col">
+            <div class="footer-brand">MAISON</div>
+            <p class="footer-tagline">Wear the silence.</p>
+            <div class="footer-socials">
+              <a href="#" class="social-link" aria-label="Instagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+              <a href="#" class="social-link" aria-label="Pinterest">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.04-2.83.18-.76 1.22-5.18 1.22-5.18s-.31-.62-.31-1.55c0-1.45.84-2.54 1.89-2.54.89 0 1.32.67 1.32 1.48 0 .9-.57 2.24-.87 3.49-.25 1.04.52 1.88 1.54 1.88 1.85 0 3.09-2.36 3.09-5.15 0-2.13-1.43-3.71-4-3.71-2.91 0-4.71 2.18-4.71 4.59 0 .83.24 1.42.61 1.87.07.08.08.16.06.25-.06.25-.2.83-.23.95-.04.15-.15.19-.28.11-1.03-.56-1.67-2.3-1.67-3.7 0-3.01 2.52-6.6 7.52-6.6 4.01 0 6.63 2.9 6.63 6.02 0 4.1-2.27 7.17-5.61 7.17-1.12 0-2.18-.61-2.54-1.28l-.73 2.8c-.27 1.01-.99 2.27-1.47 3.04.73.23 1.5.35 2.3.35 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+              </a>
+              <a href="#" class="social-link" aria-label="X / Twitter">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.258 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">Shop</h4>
+            <ul class="footer-links">
+              <li><a href="#" data-page="shop">New Arrivals</a></li>
+              <li><a href="#" data-page="shop">Dresses</a></li>
+              <li><a href="#" data-page="shop">Blazers</a></li>
+              <li><a href="#" data-page="shop">Outerwear</a></li>
+              <li><a href="#" data-page="shop">Sale</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">Help</h4>
+            <ul class="footer-links">
+              <li><a href="#">Sizing Guide</a></li>
+              <li><a href="#">Shipping & Returns</a></li>
+              <li><a href="#">Order Tracking</a></li>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">Company</h4>
+            <ul class="footer-links">
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Sustainability</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 MAISON. All rights reserved.</p>
+          <p>Crafted with intention.</p>
+        </div>
+      </div>
+    </footer>
+  </div><!-- end page-home -->
+
+  <!-- ─────────────── SHOP PAGE ─────────────── -->
+  <div id="page-shop" class="page">
+    <div class="shop-hero reveal">
+      <div class="container">
+        <span class="section-eyebrow">Our Collection</span>
+        <h1 class="shop-title">All Products</h1>
+        <p class="shop-subtitle">Curated pieces for the intentional wardrobe.</p>
+      </div>
+    </div>
+    <div class="container shop-container">
+      <!-- Filters -->
+      <div class="shop-toolbar">
+        <div class="filter-pills" id="filterPills">
+          <button class="filter-pill active" data-filter="all">All</button>
+          <button class="filter-pill" data-filter="dresses">Dresses</button>
+          <button class="filter-pill" data-filter="blazers">Blazers</button>
+          <button class="filter-pill" data-filter="coats">Outerwear</button>
+          <button class="filter-pill" data-filter="shirts">Shirts</button>
+          <button class="filter-pill" data-filter="trousers">Trousers</button>
+        </div>
+        <div class="sort-wrap">
+          <label for="sortSelect" class="sr-only">Sort by</label>
+          <select id="sortSelect" class="sort-select">
+            <option value="featured">Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="newest">Newest</option>
+          </select>
+        </div>
+      </div>
+      <div class="products-grid" id="shopGrid">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+    <!-- Footer repeated -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <p>&copy; 2026 MAISON. All rights reserved.</p>
+          <p>Crafted with intention.</p>
+        </div>
+      </div>
+    </footer>
+  </div><!-- end page-shop -->
+
+  <!-- ─────────────── PRODUCT PAGE ─────────────── -->
+  <div id="page-product" class="page">
+    <div class="product-page-inner" id="productPageContent">
+      <!-- Injected by JS -->
+    </div>
+  </div><!-- end page-product -->
+
+  <!-- ─────────────── CHECKOUT PAGE ─────────────── -->
+  <div id="page-checkout" class="page">
+    <div class="checkout-page" id="checkoutContent">
+      <!-- Injected by JS -->
+    </div>
+  </div>
+
+</main>
+
+<!-- Toast notification -->
+<div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
